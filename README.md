@@ -4,6 +4,8 @@ This is a typescript adaptation of [verlet-js](https://github.com/subprotocol/ve
 
 The goal is to provide a simple Verlet physics simulation that can be easily imported into various projects, without much overhead.
 
+👉 [**Demo / Examples**](https://verlet-ts-demo.pages.dev/) 
+
 ## Features
 
 * Built-in 2D Vector class
