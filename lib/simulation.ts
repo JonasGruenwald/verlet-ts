@@ -122,6 +122,20 @@ class Simulation {
       this.enforceAllBounds();
     }
   }
+
+  getNearestParticle(x: number, y: number, maxDistanceSquared: number = 100) {
+    const target = new Vec2(x, y);
+    let minDistSquared = maxDistanceSquared;
+    let nearest = null;
+    for (let p = 0; p < this.particles.length; p++) {
+      const distanceSquared = this.particles[p].pos.distSquared(target);
+      if (distanceSquared < minDistSquared) {
+        minDistSquared = distanceSquared;
+        nearest = this.particles[p];
+      }
+    }
+    return nearest;
+  }
 }
 
 export { Simulation }

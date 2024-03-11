@@ -1,6 +1,7 @@
 /**
  * A 2D vector class and a set of functions for working with 2D vectors.
- * Class methods allow mutation of the vector and are chainable, while the functions return new vectors.
+ * Instance methods allow mutation of the vector and are chainable,
+ * the individually exported functions below return new vectors and never mutate the input vectors.
  */
 
 class Vec2 {
@@ -105,4 +106,5 @@ const rotate = (v: Vec2, origin: Vec2, angle: number): Vec2 => {
   return new Vec2(x * c - y * s + origin.x, x * s + y * c + origin.y);
 }
 const clone = (v: Vec2): Vec2 => new Vec2(v.x, v.y);
+
 export { Vec2, add, sub, mul, div, scale, normalize, relativeAngle, rotate, clone };
