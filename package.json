@@ -17,7 +17,7 @@
     "build-demo": "tsc --p ./tsconfig.json && vite build --config vite.config.demo.ts",
     "preview": "vite preview",
     "test": "vitest",
-    "publish": "pnpm run build && npm publish"
+    "prepublish": "pnpm run build"
   },
   "devDependencies": {
     "typescript": "^5.2.2",

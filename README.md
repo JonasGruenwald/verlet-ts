@@ -1,5 +1,7 @@
 # Verlet TS
 
+[![npm version](https://badge.fury.io/js/verlet-ts.svg)](https://badge.fury.io/js/verlet-ts)
+
 This is a typescript adaptation of [verlet-js](https://github.com/subprotocol/verlet-js), with some modifications.
 
 The goal is to provide a simple Verlet physics simulation that can be easily imported into various projects, without much overhead.
