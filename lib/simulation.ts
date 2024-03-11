@@ -85,7 +85,7 @@ class Simulation {
         continue;
       }
 
-      const {pos, lastPos} = this.particles[p];
+      const { pos, lastPos } = this.particles[p];
       console.log(pos, lastPos);
 
       const velocity = sub(this.particles[p].pos, this.particles[p].lastPos).scale(this.friction);
@@ -123,6 +123,14 @@ class Simulation {
     }
   }
 
+  /**
+   * Get the nearest particle to a given position, within a maximum distance.
+   * Convenience for implementing interaction with the simulation.
+   * @param x 
+   * @param y 
+   * @param maxDistanceSquared 
+   * @returns 
+   */
   getNearestParticle(x: number, y: number, maxDistanceSquared: number = 100) {
     const target = new Vec2(x, y);
     let minDistSquared = maxDistanceSquared;
@@ -135,6 +143,15 @@ class Simulation {
       }
     }
     return nearest;
+  }
+
+  /**
+   * Convenience method to bulk add particles and constraints to the simulation
+   * @param data { particles: Particle[], constraints: Constraint[] }
+   */
+  add = ({ particles, constraints }: { particles: Particle[], constraints: Constraint[] }) => {
+    this.particles.push(...particles);
+    this.constraints.push(...constraints);
   }
 }
 

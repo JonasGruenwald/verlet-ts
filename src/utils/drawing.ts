@@ -51,26 +51,28 @@ class Sketch extends HTMLElement {
   }
 
   connectedCallback() {
-    this.canvas.addEventListener('mousedown', this.onMouseDown.bind(this));
-    this.canvas.addEventListener('mousemove', this.onMouseMove.bind(this));
-    this.canvas.addEventListener('mouseup', this.onMouseUp.bind(this));
+    this.canvas.addEventListener('pointerdown', this.onPointerDown.bind(this));
+    this.canvas.addEventListener('pointermove', this.onPointerMove.bind(this));
+    this.canvas.addEventListener('pointerup', this.onPointerUp.bind(this));
     this.canvas.addEventListener('contextmenu', (e) => e.preventDefault());
     requestAnimationFrame(this.update)
   }
 
-  onMouseDown(e: MouseEvent) {
+  onPointerDown(e: PointerEvent) {
     this.mouseDown = true;
     this.mouseX = e.offsetX;
     this.mouseY = e.offsetY;
+    this.canvas.setPointerCapture(e.pointerId);
   }
 
-  onMouseMove(e: MouseEvent) {
+  onPointerMove(e: PointerEvent) {
     this.mouseX = e.offsetX;
     this.mouseY = e.offsetY;
   }
 
-  onMouseUp() {
+  onPointerUp(e: PointerEvent) {
     this.mouseDown = false;
+    this.canvas.releasePointerCapture(e.pointerId);
   }
 
   update = (timestamp: number) => {
