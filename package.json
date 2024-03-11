@@ -1,8 +1,9 @@
 {
   "name": "verlet-ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple 2D Verlet physics in TypeScript.",
   "license": "MIT",
+  "repository": "https://github.com/JonasGruenwald/verlet-ts",
   "author": {
     "name": "Jonas Grünwald",
     "email": "code@jonasg.me",
@@ -15,7 +16,8 @@
     "build": "tsc --p ./tsconfig-build.json && vite build",
     "build-demo": "tsc --p ./tsconfig.json && vite build --config vite.config.demo.ts",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "publish": "pnpm run build && npm publish"
   },
   "devDependencies": {
     "typescript": "^5.2.2",
