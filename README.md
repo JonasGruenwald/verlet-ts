@@ -50,6 +50,5 @@ Compared to verlet-js, this library has been reduced to include only the necessa
 ### Project structure
 * `/lib` – Library core
 * `/src` – Entrypoint for **examples**
-  * `/utils/objects.ts` – Object construction examples
-  * `/utils/drawing.ts` – Drawing logic examples
+  * `/utils/drawing.ts` – Drawing and interaction logic for examples
   * `/examples/` – Example sketches

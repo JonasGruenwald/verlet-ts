@@ -6,6 +6,7 @@ const interval = Math.floor(1000 / fps);
 
 class Sketch extends HTMLElement {
   // canvas
+  simulation: Simulation;
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
   // timing
@@ -18,6 +19,8 @@ class Sketch extends HTMLElement {
   mouseDown: boolean = false;
   mouseX: number = 0;
   mouseY: number = 0;
+  draggedParticle: Particle | null = null;
+  hoveredParticle: Particle | null = null;
   constructor(width: number, height: number, caption: string, scale: number = window.devicePixelRatio || 1) {
     super();
     const root = this.attachShadow({ mode: 'open' })
@@ -48,6 +51,7 @@ class Sketch extends HTMLElement {
     this.deltaTime = 0;
 
     this.mouseDown = false;
+    this.simulation = new Simulation(width, height);
   }
 
   connectedCallback() {
@@ -63,6 +67,7 @@ class Sketch extends HTMLElement {
     this.mouseX = e.offsetX;
     this.mouseY = e.offsetY;
     this.canvas.setPointerCapture(e.pointerId);
+    this.draggedParticle = this.simulation.getNearestParticle(this.mouseX, this.mouseY, 100);
   }
 
   onPointerMove(e: PointerEvent) {
@@ -73,6 +78,8 @@ class Sketch extends HTMLElement {
   onPointerUp(e: PointerEvent) {
     this.mouseDown = false;
     this.canvas.releasePointerCapture(e.pointerId);
+    this.draggedParticle = null;
+    this.hoveredParticle = null;
   }
 
   update = (timestamp: number) => {
@@ -87,6 +94,18 @@ class Sketch extends HTMLElement {
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.simulation.update(50);
+    drawSimulation(this.simulation, this.ctx);
+    this.ctx.lineWidth = 1;
+    this.hoveredParticle = this.simulation.getNearestParticle(this.mouseX, this.mouseY, 100);
+    if (this.hoveredParticle) {
+      drawParticle(this.hoveredParticle, this.ctx, 5, "none", "grey");
+    }
+    if (this.draggedParticle) {
+      this.draggedParticle.pos.x = this.mouseX;
+      this.draggedParticle.pos.y = this.mouseY;
+      drawParticle(this.draggedParticle, this.ctx, 5, "none", "blue");
+    }
   }
 }
 
