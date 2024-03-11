@@ -1,6 +1,6 @@
-import { Constraint, DistanceConstraint } from "./constraint";
-import { Particle } from "./particle";
-import { Vec2 } from "./vec2";
+import { Constraint, DistanceConstraint } from "../../lib/constraint";
+import { Particle } from "../../lib/particle";
+import { Vec2 } from "../../lib/vec2";
 
 export const createLineSegments = (points: Vec2[], stiffness: number) => {
   const constraints : Constraint[] = [];

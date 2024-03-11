@@ -1,5 +1,6 @@
+import { Simulation, Vec2 } from '../../lib/main';
 import { Sketch, drawSimulation } from '../utils/drawing';
-import { Simulation, createLineSegments, Vec2 } from '../../lib/main';
+import { createLineSegments } from '../utils/objects';
 
 class BasicExample extends Sketch {
   simulation: Simulation;
