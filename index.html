@@ -1,12 +1,33 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example Page</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/example.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    hr {
+      border: none;
+      border-bottom: 1px solid black;
+      margin: 10px 0;
+    }
+
+    * {
+      font-weight: normal;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>verlet-ts examples</h1>
+  <hr>
+  <script type="module" src="/src/examples/basic.ts"></script>
+  <basic-example></basic-example>
+</body>
+
 </html>

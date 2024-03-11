@@ -104,4 +104,5 @@ const rotate = (v: Vec2, origin: Vec2, angle: number): Vec2 => {
   const y = v.y - origin.y;
   return new Vec2(x * c - y * s + origin.x, x * s + y * c + origin.y);
 }
-export { Vec2, add, sub, mul, div, scale, normalize, relativeAngle, rotate };
+const clone = (v: Vec2): Vec2 => new Vec2(v.x, v.y);
+export { Vec2, add, sub, mul, div, scale, normalize, relativeAngle, rotate, clone };

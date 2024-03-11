@@ -10,6 +10,7 @@
   },
   "type": "module",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",
     "preview": "vite preview",

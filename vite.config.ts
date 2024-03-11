@@ -11,5 +11,8 @@ export default defineConfig({
       fileName: 'verlet-ts',
     },
     outDir: 'dist',
+  },
+  server: {
+    port: 3000,
   }
 })
